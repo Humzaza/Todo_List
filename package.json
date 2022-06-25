@@ -1,0 +1,26 @@
+{
+  "name": "todo_list",
+  "version": "1.0.0",
+  "description": "My own todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "\u0014\u0014test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Humzaza/Todo_List.git"
+  },
+  "keywords": [
+    "Todo"
+  ],
+  "author": "Humzaza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Humzaza/Todo_List/issues"
+  },
+  "homepage": "https://github.com/Humzaza/Todo_List#readme",
+  "devDependencies": {
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
