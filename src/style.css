@@ -34,11 +34,11 @@ body, html {
     align-items: center;
 } */
 
-.content {
+/* .content {
     background-color: rgb(98, 98, 98);
     display: flex;
-    /* padding: 15px; */
-}
+    padding: 15px;
+} */
 
 .leftContent {
     width: 18%;
@@ -69,4 +69,19 @@ footer {
 .add {
     font-size: 30px;
     font-weight: 900;
+    background-color: rgb(56, 52, 52);
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add:hover {
+    cursor: pointer;
+    color: rgb(174, 173, 173);
+}
+
+.add:active {
+    font-weight: 700;
 }
