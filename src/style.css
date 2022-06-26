@@ -23,7 +23,7 @@ body, html {
     color: white;
 }
 
-header {
+/* header {
     background-color: black;
     color: white;
     font-size: 30px;
@@ -32,7 +32,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .content {
     background-color: rgb(98, 98, 98);
@@ -43,6 +43,9 @@ header {
 .leftContent {
     width: 18%;
     background-color: rgb(56, 52, 52);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px;
 }
 
 .rightContent {
@@ -51,4 +54,19 @@ header {
 
 footer {
     background-color: black;
+}
+
+.taskList, .projectList {
+    padding: 0 0 0 15px;
+}
+
+.taskAdd, .projectAdd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 0;
+}
+.add {
+    font-size: 30px;
+    font-weight: 900;
 }
