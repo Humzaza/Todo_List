@@ -1,3 +1,4 @@
+import addTask from './AddingTasks/addingTasks';
 import './contentLeft.css';
 
 const contentLeft = () => {
@@ -21,9 +22,10 @@ const contentLeft = () => {
 
     let taskList = document.createElement('div');
     taskList.className = 'taskList';
+    addBut.addEventListener('click', addTask);
 
     let tempTask = document.createElement('div');
-    tempTask.textContent = 'sdafasdf';
+    tempTask.textContent = '';
 
     taskList.appendChild(tempTask);
 
