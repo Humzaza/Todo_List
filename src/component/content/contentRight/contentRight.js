@@ -1,0 +1,1 @@
+import './contentRight.css';

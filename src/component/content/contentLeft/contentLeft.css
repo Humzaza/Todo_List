@@ -1,0 +1,38 @@
+.leftContent {
+    width: 18%;
+    background-color: rgb(56, 52, 52);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.taskList, .projectList {
+    padding: 0 0 0 15px;
+}
+
+.taskAdd, .projectAdd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 0;
+}
+.add {
+    font-size: 30px;
+    font-weight: 900;
+    background-color: rgb(56, 52, 52);
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add:hover {
+    cursor: pointer;
+    color: rgb(174, 173, 173);
+}
+
+.add:active {
+    font-weight: 700;
+}
