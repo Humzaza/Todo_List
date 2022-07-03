@@ -3,6 +3,19 @@ const addTask = () => {
     let taskList = document.querySelector('.taskList');
     settingLayout();
 
+    let getTaskBtn = document.getElementById('save');
+
+    getTaskBtn.addEventListener('click', () => {
+        let taskName = document.getElementById('title').value;
+        let discription = document.getElementById('description').value;
+        let dueDate = document.getElementById('dueDate').value;
+        let priority = document.getElementById('title').value;
+        let notes = document.getElementById('notes').value;
+
+        console.log(taskCreater(taskName, discription, dueDate, priority, notes));
+
+    });
+
     let taskDiv = document.createElement('div');
 
     taskList.appendChild(taskDiv);
@@ -72,9 +85,9 @@ function settingLayout() {
     let discriptDiv = document.createElement('div');
     discriptDiv.className = 'discriptDiv';
     let inputDiscript = document.createElement('input');
-    inputTitle.setAttribute('type', 'text');
-    inputTitle.setAttribute('name', 'description');
-    inputTitle.setAttribute('id', 'description');
+    inputDiscript.setAttribute('type', 'text');
+    inputDiscript.setAttribute('name', 'description');
+    inputDiscript.setAttribute('id', 'description');
     discriptDiv.appendChild(inputDiscript);
 
     infoDivForm.appendChild(discriptDiv);
@@ -178,9 +191,13 @@ function dimScreen() {
 }
 
 
-function taskCreater(name, description, dueDate, priot) {
+function taskCreater(name, description, dueDate, priority, notes) {
     return {
-
+        name,
+        description,
+        dueDate,
+        priority,
+        notes
     };
 }
 
