@@ -1,19 +1,28 @@
+import taskChecker from '../../../taskmanager/taskChecker';
 import './addingTasks.css';
+
+let layoutState = true;
 const addTask = () => {
     let taskList = document.querySelector('.taskList');
-    settingLayout();
+    if(layoutState) {
+        settingLayout();
+        layoutState = false;
+    }
+    let taskName = document.getElementById('title');
+    let discription = document.getElementById('description');
+    let dueDate = document.getElementById('dueDate');
+    let formDiv = document.querySelector('.infoDiv');
+    let dim = document.querySelector('.dim'); 
+    formDiv.style.display = 'flex';
+    dim.style.display = 'flex';
+    taskName.value = '';
+    discription.value = '';
+    dueDate.value = '';
 
-    let getTaskBtn = document.getElementById('save');
+    let saveTaskBtn = document.getElementById('save');
 
-    getTaskBtn.addEventListener('click', () => {
-        let taskName = document.getElementById('title').value;
-        let discription = document.getElementById('description').value;
-        let dueDate = document.getElementById('dueDate').value;
-        let priority = document.getElementById('title').value;
-        let notes = document.getElementById('notes').value;
-
-        console.log(taskCreater(taskName, discription, dueDate, priority, notes));
-
+    saveTaskBtn.addEventListener('click', () => {
+        taskChecker();
     });
 
     let taskDiv = document.createElement('div');
@@ -27,6 +36,7 @@ function settingLayout() {
 
     let infoDiv = document.createElement('div');
     infoDiv.className = 'infoDiv';
+
     dim.appendChild(infoDiv);
 
     let infoDivTitle = document.createElement('div');
@@ -54,80 +64,84 @@ function settingLayout() {
     let title = document.createElement('label');
     title.setAttribute('for', 'title');
     title.textContent = 'Title';
-
+    
     titleDiv.appendChild(title);
-
+    
     infoDivForm.appendChild(titleDiv);
-
+    
     infoDiv.appendChild(infoDivForm);
-
+    
     let titleDiv2 = document.createElement('div');
     titleDiv2.className = 'titleDiv';
     let inputTitle = document.createElement('input');
+    inputTitle.setAttribute('required', '');
     inputTitle.setAttribute('type', 'text');
     inputTitle.setAttribute('name', 'title');
     inputTitle.setAttribute('id', 'title');
     titleDiv2.appendChild(inputTitle);
-
+    
     infoDivForm.appendChild(titleDiv2);
-
+    
     let discriptDiv1 = document.createElement('div');
     discriptDiv1.className = 'discriptDiv';
-
+    
     let discription = document.createElement('label');
     discription.setAttribute('for', 'description');
     discription.textContent = 'Description';
-
+    
     discriptDiv1.appendChild(discription);
-
+    
     infoDivForm.appendChild(discriptDiv1);
-
+    
     let discriptDiv = document.createElement('div');
     discriptDiv.className = 'discriptDiv';
     let inputDiscript = document.createElement('input');
     inputDiscript.setAttribute('type', 'text');
+    inputDiscript.setAttribute('required', '');
     inputDiscript.setAttribute('name', 'description');
     inputDiscript.setAttribute('id', 'description');
     discriptDiv.appendChild(inputDiscript);
-
+    
     infoDivForm.appendChild(discriptDiv);
-
+    
     let dueDiv = document.createElement('div');
     dueDiv.className = 'dueDiv';
-
+    
     let dueLabel = document.createElement('label');
     dueLabel.textContent = 'Date Due';
     dueLabel.setAttribute('for', 'description');
-
+    
     dueDiv.appendChild(dueLabel);
-
+    
     infoDivForm.appendChild(dueDiv);
-
+    
     let dueDiv2 = document.createElement('div');
     dueDiv2.className = 'dueDiv';
-
+    
     let inputDueDate = document.createElement('input');
-    inputDueDate.setAttribute('type', 'text');
+    inputDueDate.setAttribute('required', '');
+    inputDueDate.setAttribute('type', 'date');
     inputDueDate.setAttribute('name', 'dueDate');
     inputDueDate.setAttribute('id', 'dueDate');
-
+    inputDueDate.setAttribute('width', '100%');
+    
     dueDiv2.appendChild(inputDueDate);
-
+    
     infoDivForm.appendChild(dueDiv2);
-
+    
     let prioDiv = document.createElement('div');
     prioDiv.className = 'prioDiv';
-
+    
     let prioLabel = document.createElement('label');
     prioLabel.textContent = 'Priority';
     prioLabel.setAttribute('for','priority');
     prioDiv.appendChild(prioLabel);
-
+    
     infoDivForm.appendChild(prioDiv);
-
+    
     let prioDivBtn = document.createElement('div');
     prioDivBtn.className = 'prioDivBtn';
-
+    
     let lowBtn = document.createElement('button');
     lowBtn.setAttribute('id','low');
     lowBtn.textContent = 'Low';
@@ -189,19 +203,6 @@ function dimScreen() {
     let layout = document.querySelector('.layout');
     layout.appendChild(dimScreen);
 }
-
-
-function taskCreater(name, description, dueDate, priority, notes) {
-    return {
-        name,
-        description,
-        dueDate,
-        priority,
-        notes
-    };
-}
-
-
 
 
 export default addTask;
