@@ -1,31 +1,24 @@
 import taskChecker from '../../../taskmanager/taskChecker';
+import rightContent from '../../contentRight/contentRight';
 import './addingTasks.css';
 
-let layoutState = true;
 const addTask = () => {
     let taskList = document.querySelector('.taskList');
-    if(layoutState) {
-        settingLayout();
-        layoutState = false;
-    }
-    let taskName = document.getElementById('title');
-    let discription = document.getElementById('description');
-    let dueDate = document.getElementById('dueDate');
+
+    settingLayout();
     let priority = document.querySelector('.prioDivBtn');
-    let formDiv = document.querySelector('.infoDiv');
-    let dim = document.querySelector('.dim'); 
     let low = document.getElementById('low');
     let med = document.getElementById('med');
     let high = document.getElementById('high');
-    formDiv.style.display = 'flex';
-    dim.style.display = 'flex';
-    taskName.value = '';
-    discription.value = '';
-    dueDate.value = '';
+    // formDiv.style.display = 'flex';
+    // dim.style.display = 'flex';
+    // taskName.value = '';
+    // discription.value = '';
+    // dueDate.value = '';
 
     let saveTaskBtn = document.getElementById('save');
     let selectedPriority = 'none';
-
+   
     priority.addEventListener('click', (e) => {
         selectedPriority = e.target.id;
         if (e.target.id == 'low') {
@@ -44,10 +37,16 @@ const addTask = () => {
             high.style.backgroundColor =  'black';
         }
     });
-
+   
     saveTaskBtn.addEventListener('click', () => {
         taskChecker(selectedPriority);
+        let tempR = document.querySelector('.rightContent');
+        let contentR = rightContent();
+        tempR.appendChild(contentR);
+        console.log('click')
+
     });
+    
 
     let taskDiv = document.createElement('div');
 

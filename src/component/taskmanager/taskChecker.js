@@ -11,16 +11,16 @@ const taskChecker = (selectedPriority) => {
 
     let taskExist = false;
 
+
     taskRecord.forEach(element => {
         let taskName = document.getElementById('title');
-        console.log(element.taskName);
-        if (taskName == element.taskName) {
+        if (taskName.value == element.name) {
             taskExist = true;
-            alert();
         }
     });
 
     if (taskName.value != '' && discription.value != '' && dueDate.value != '' && taskExist == false) {
+        // console.log(taskName.value);
         taskAdder(taskName, discription, dueDate, selectedPriority, notes);
         formDiv.style.display = 'none';
         dim.style.display = 'none';    
@@ -29,10 +29,9 @@ const taskChecker = (selectedPriority) => {
 
 
 const taskAdder = (taskName, discription, dueDate, priority, notes) => {
-    
+    // console.log(taskName.value)
     let task = taskCreater(taskName.value, discription.value, dueDate.value, priority, notes.value);
     taskRecord.push(task);
-    
 };
 
 function taskCreater(name, description, dueDate, priority, notes) {
@@ -45,8 +44,14 @@ function taskCreater(name, description, dueDate, priority, notes) {
     };
 }
 
-taskRecord.push(taskCreater('1', '1', '324', 'high', 'none'));
-taskRecord.push(taskCreater('2', '1', '324', 'high', 'none'));
-console.log(taskRecord);
+export const getTaskRecord = () => {
+    // console.log(taskRecord);
+    return taskRecord;
+};
+
+// taskRecord.push(taskCreater('1', '1', '324', 'high', 'none'));
+// taskRecord.push(taskCreater('1', '1', '324', 'low', 'none'));
+// taskRecord.push(taskCreater('2', '1', '324', 'med', 'none'));
+ 
 
 export default taskChecker;

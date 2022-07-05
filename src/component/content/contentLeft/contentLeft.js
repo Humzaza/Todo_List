@@ -22,7 +22,13 @@ const contentLeft = () => {
 
     let taskList = document.createElement('div');
     taskList.className = 'taskList';
-    addBut.addEventListener('click', addTask);
+    addBut.addEventListener('click', () => {
+        if (document.querySelector('.dim')) {
+            let dimScreen = document.querySelector('.dim');
+            dimScreen.remove();
+        }
+        addTask();
+    });
 
     let tempTask = document.createElement('div');
     tempTask.textContent = '';
