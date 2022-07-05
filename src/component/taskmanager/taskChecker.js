@@ -1,5 +1,6 @@
 let taskRecord = [];
 
+
 const taskChecker = (selectedPriority) => {
     let taskName = document.getElementById('title');
     let discription = document.getElementById('description');
@@ -23,12 +24,7 @@ const taskChecker = (selectedPriority) => {
         taskAdder(taskName, discription, dueDate, selectedPriority, notes);
         formDiv.style.display = 'none';
         dim.style.display = 'none';    
-        console.log(taskRecord);
     }
-};
-
-const chkTaskExist = (taskname, taskRecord) => {
-
 };
 
 
@@ -48,5 +44,9 @@ function taskCreater(name, description, dueDate, priority, notes) {
         notes
     };
 }
+
+taskRecord.push(taskCreater('1', '1', '324', 'high', 'none'));
+taskRecord.push(taskCreater('2', '1', '324', 'high', 'none'));
+console.log(taskRecord);
 
 export default taskChecker;
