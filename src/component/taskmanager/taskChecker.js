@@ -1,10 +1,9 @@
 let taskRecord = [];
 
-const taskChecker = () => {
+const taskChecker = (selectedPriority) => {
     let taskName = document.getElementById('title');
     let discription = document.getElementById('description');
     let dueDate = document.getElementById('dueDate');
-    let priority = document.getElementById('title');
     let notes = document.getElementById('notes');    
     let formDiv = document.querySelector('.infoDiv');
     let dim = document.querySelector('.dim');
@@ -21,11 +20,11 @@ const taskChecker = () => {
     });
 
     if (taskName.value != '' && discription.value != '' && dueDate.value != '' && taskExist == false) {
-        taskAdder(taskName, discription, dueDate, priority, notes);
+        taskAdder(taskName, discription, dueDate, selectedPriority, notes);
         formDiv.style.display = 'none';
-        dim.style.display = 'none';
+        dim.style.display = 'none';    
+        console.log(taskRecord);
     }
-    console.log(taskRecord);
 };
 
 const chkTaskExist = (taskname, taskRecord) => {
@@ -35,7 +34,7 @@ const chkTaskExist = (taskname, taskRecord) => {
 
 const taskAdder = (taskName, discription, dueDate, priority, notes) => {
     
-    let task = taskCreater(taskName.value, discription.value, dueDate.value, priority.value, notes.value);
+    let task = taskCreater(taskName.value, discription.value, dueDate.value, priority, notes.value);
     taskRecord.push(task);
     
 };

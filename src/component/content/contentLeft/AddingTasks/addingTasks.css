@@ -60,7 +60,7 @@
     gap: 10px;
 }
 
-.prioDivBtn > button {
+.prioDivBtn > div {
     padding: 10px;
     gap: 10px;
     border-radius: 10px;
@@ -71,7 +71,7 @@
     background-color: rgb(24, 233, 24);
 }
 #med { 
-    background-color: yellow;
+    background-color: rgb(201, 201, 50);
 }
 #high { 
     background-color: red;

@@ -11,8 +11,12 @@ const addTask = () => {
     let taskName = document.getElementById('title');
     let discription = document.getElementById('description');
     let dueDate = document.getElementById('dueDate');
+    let priority = document.querySelector('.prioDivBtn');
     let formDiv = document.querySelector('.infoDiv');
     let dim = document.querySelector('.dim'); 
+    let low = document.getElementById('low');
+    let med = document.getElementById('med');
+    let high = document.getElementById('high');
     formDiv.style.display = 'flex';
     dim.style.display = 'flex';
     taskName.value = '';
@@ -20,9 +24,29 @@ const addTask = () => {
     dueDate.value = '';
 
     let saveTaskBtn = document.getElementById('save');
+    let selectedPriority = 'none';
+
+    priority.addEventListener('click', (e) => {
+        selectedPriority = e.target.id;
+        if (e.target.id == 'low') {
+            low.style.backgroundColor =  'black';
+            med.style.backgroundColor =  'rgb(201, 201, 50)';
+            high.style.backgroundColor =  'red';
+        }
+        if (e.target.id == 'med') {
+            low.style.backgroundColor =  'rgb(24, 233, 24)';
+            med.style.backgroundColor =  'black';
+            high.style.backgroundColor =  'red'; 
+        }
+        if (e.target.id == 'high') {
+            low.style.backgroundColor =  'rgb(24, 233, 24)';
+            med.style.backgroundColor =  'rgb(201, 201, 50)';
+            high.style.backgroundColor =  'black';
+        }
+    });
 
     saveTaskBtn.addEventListener('click', () => {
-        taskChecker();
+        taskChecker(selectedPriority);
     });
 
     let taskDiv = document.createElement('div');
@@ -142,13 +166,13 @@ function settingLayout() {
     let prioDivBtn = document.createElement('div');
     prioDivBtn.className = 'prioDivBtn';
     
-    let lowBtn = document.createElement('button');
+    let lowBtn = document.createElement('div');
     lowBtn.setAttribute('id','low');
     lowBtn.textContent = 'Low';
-    let medBtn = document.createElement('button');
+    let medBtn = document.createElement('div');
     medBtn.setAttribute('id','med');
     medBtn.textContent = 'Medium';
-    let highBtn = document.createElement('button');
+    let highBtn = document.createElement('div');
     highBtn.setAttribute('id','high');
     highBtn.textContent = 'High';
 

@@ -5,6 +5,6 @@ import header from './component/header/header.js';
 import content from './component/content/content';
 import footer from './component/footer/footer';
 
-// header();
-// content();
-// footer();
+header();
+content();
+footer();
