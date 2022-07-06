@@ -1,5 +1,6 @@
 import taskChecker from '../../../taskmanager/taskChecker';
 import rightContent from '../../contentRight/contentRight';
+import taskSumCreat from '../../contentRight/taskSummary/taskSumCreat';
 import './addingTasks.css';
 
 const addTask = () => {
@@ -10,11 +11,6 @@ const addTask = () => {
     let low = document.getElementById('low');
     let med = document.getElementById('med');
     let high = document.getElementById('high');
-    // formDiv.style.display = 'flex';
-    // dim.style.display = 'flex';
-    // taskName.value = '';
-    // discription.value = '';
-    // dueDate.value = '';
 
     let saveTaskBtn = document.getElementById('save');
     let selectedPriority = 'none';
@@ -41,10 +37,8 @@ const addTask = () => {
     saveTaskBtn.addEventListener('click', () => {
         taskChecker(selectedPriority);
         let tempR = document.querySelector('.rightContent');
-        let contentR = rightContent();
+        let contentR = taskSumCreat();
         tempR.appendChild(contentR);
-        console.log('click')
-
     });
     
 
