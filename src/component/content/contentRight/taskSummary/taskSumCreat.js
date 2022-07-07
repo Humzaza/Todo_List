@@ -8,7 +8,6 @@ const taskSumCreat = () => {
     taskRecord.forEach(element => {
         let rightContentDiv = document.createElement('div');
         rightContentDiv.innerHTML = '';
-        console.log(element);
         let taskSummaryDiv = document.createElement('div');
         taskSummaryDiv.className = 'taskSummary';
         
@@ -20,6 +19,7 @@ const taskSumCreat = () => {
 
         let taskHeader = document.createElement('h2');
         taskHeader.textContent = element.name;
+        taskHeader.id = element.name;
 
         taskName.appendChild(taskHeader);
         taskDivTop.appendChild(taskName);
@@ -29,30 +29,38 @@ const taskSumCreat = () => {
         dueDate.textContent = element.dueDate;
         
         taskDivTop.appendChild(dueDate);
+        taskDivTop.id = element.name;
 
         taskSummaryDiv.appendChild(taskDivTop);
 
         let taskDivBot = document.createElement('div');
         taskDivBot.className = 'taskDivBot';
+        taskDivBot.id = element.name;
 
         let descript = document.createElement('div');
         descript.className = 'descript';
         descript.textContent = element.description;
+        descript.id = element.name;
 
         taskDivBot.appendChild(descript);
 
         let priority = document.createElement('div');
         priority.className = 'priority';
+        priority.id = element.name;
 
         let priorityHeader = document.createElement('h4');
         priorityHeader.textContent = 'Priority:';
+        priorityHeader.id = element.name;
 
         let lowDiv = document.createElement('div');
         lowDiv.textContent = 'Low';
+        lowDiv.id = element.name;
         let medDiv = document.createElement('div');
         medDiv.textContent = 'Medium';
+        medDiv.id = element.name;
         let highDiv = document.createElement('div');
         highDiv.textContent = 'High';
+        highDiv.id = element.name;
 
         if (element.priority == 'low') {
             lowDiv.style.backgroundColor = 'green';
@@ -80,8 +88,16 @@ const taskSumCreat = () => {
 
         taskDivBot.appendChild(priority);
 
+        // let coverDiv = document.createElement('div');
+        // coverDiv.id = element.name;
+        // coverDiv.className = 'coverDiv';
+        // coverDiv.setAttribute('position', 'absolute');
+        // coverDiv.style.width = '100%';
+        
         taskSummaryDiv.appendChild(taskDivBot);
+        // taskSummaryDiv.appendChild(coverDiv);
         taskSum = taskSummaryDiv;
+        // console.log(taskSum);
     });
     return taskSum;
 };

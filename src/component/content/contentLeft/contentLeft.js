@@ -42,7 +42,7 @@ const contentLeft = () => {
     
     let tempProDiv = document.createElement('div');
     tempProDiv.className = 'project';
-    tempProDiv.textContent = 'adf';
+    tempProDiv.textContent = '';
     contentLeft.appendChild(tempProDiv);
 
     return contentLeft;

@@ -1,6 +1,8 @@
-import taskChecker from '../../../taskmanager/taskChecker';
+import taskChecker, { getTaskRecord } from '../../../taskmanager/taskChecker';
+import ChangeTaskInfo from '../../ChangeTaskInfo/ChangeTaskInfo';
 import rightContent from '../../contentRight/contentRight';
 import taskSumCreat from '../../contentRight/taskSummary/taskSumCreat';
+import showTaskName from '../TaskName/tasknameLeft';
 import './addingTasks.css';
 
 const addTask = () => {
@@ -35,10 +37,17 @@ const addTask = () => {
     });
    
     saveTaskBtn.addEventListener('click', () => {
-        taskChecker(selectedPriority);
-        let tempR = document.querySelector('.rightContent');
-        let contentR = taskSumCreat();
-        tempR.appendChild(contentR);
+        let taskName = document.getElementById('title');
+        let discription = document.getElementById('description');
+        let dueDate = document.getElementById('dueDate');
+        if (taskName.value != '' && discription.value != '' && dueDate.value != '') {
+            taskChecker(selectedPriority);
+            let tempR = document.querySelector('.rightContent');
+            let contentR = taskSumCreat();
+            tempR.appendChild(contentR);
+            showTaskName();
+            ChangeTaskInfo();
+        }
     });
     
 
