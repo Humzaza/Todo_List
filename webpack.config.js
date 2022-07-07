@@ -1,4 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
+const supportedLocales = ['en-US', 'de', 'pl', 'it'];
+
+// import webpack from 'webpack'
+// import { supportedLocales } from './config.js'
 
 module.exports = {
   mode: 'development',
@@ -20,4 +25,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ContextReplacementPlugin(
+      /date\-fns[\/\\]/,
+      new RegExp(`[/\\\\\](${supportedLocales.join('|')})[/\\\\\]index\.js$`)
+    )
+  ]
 };
