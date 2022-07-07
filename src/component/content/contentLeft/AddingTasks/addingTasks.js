@@ -45,8 +45,10 @@ const addTask = () => {
             let tempR = document.querySelector('.rightContent');
             let contentR = taskSumCreat();
             tempR.appendChild(contentR);
-            showTaskName();
             ChangeTaskInfo();
+            showTaskName();
+            
+            // console.log(getTaskRecord());
         }
     });
     
